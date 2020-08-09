@@ -50,6 +50,7 @@ export class NewOfferPage implements OnInit {
 
   onCreateOffer(form: NgForm) {
     this.loadingCtrl.create({ message: "Creating offer" }).then((loadingEl) => {
+      loadingEl.present();
       console.log(form.value.title);
       console.log("created", this.imageBlob);
       if (this.imageBlob) {
