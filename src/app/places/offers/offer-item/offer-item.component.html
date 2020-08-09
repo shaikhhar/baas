@@ -1,0 +1,17 @@
+<ion-item slot="start" [routerLink]="place.id">
+  <ion-thumbnail slot="start">
+    <ion-img [src]="place.imageUrl"></ion-img>
+  </ion-thumbnail>
+  <ion-label>
+    <h2>{{ place.title }}</h2>
+    <p>{{ place.description }}</p>
+    <p class="text-muted">{{ place.price | currency }}</p>
+    <div>
+      <ion-icon name="calendar"></ion-icon>
+      <ion-text color="primary">{{ place.from | date }}</ion-text>
+      <span>TO</span>
+      <ion-icon name="calendar"></ion-icon>
+      <ion-text color="primary">{{ place.to | date }}</ion-text>
+    </div>
+  </ion-label>
+</ion-item>

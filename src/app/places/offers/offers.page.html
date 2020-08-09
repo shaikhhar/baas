@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>offers</ion-title>
+    <ion-buttons slot="end" routerLink="/places/tabs/offers/new">
+      <ion-icon name="add" slot="icon-only"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+        <ion-spinner *ngIf="isLoading"></ion-spinner>
+        <p text-center *ngIf="!isLoading && loadedPlaces.length==0">No offers found</p>
+        <ion-list *ngIf="!isLoading && loadedPlaces.length>0">
+          <ion-item-sliding *ngFor="let place of loadedPlaces">
+            <app-offer-item [place]="place"></app-offer-item>
+            <ion-item-options side="end">
+              <ion-item-option color="secondary" (click)="onEdit(place.id)">
+                <ion-icon name="Create" slot="icon-only"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

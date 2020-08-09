@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/places/tabs/offers"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Offer</ion-title>
+    <ion-buttons slot="end">
+      <ion-button type="submit" (click)="onCreateOffer(f)" [disabled]="!f.valid">
+        <ion-icon name="checkmark" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form #f="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Title</ion-label>
+            <ion-input ngModel name="title" type="text" autocomplete required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-textarea ngModel name="description" rows="3" required></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Price</ion-label>
+            <ion-input ngModel name="price" type="number" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">From</ion-label>
+            <ion-datetime ngModel name="from" required></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">To</ion-label>
+            <ion-datetime ngModel name="to" required></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <app-location-picker (locationPick)="onLocationPicked($event)"></app-location-picker>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <app-image-picker (imagePick)="onImagePicked($event)"></app-image-picker>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>

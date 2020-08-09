@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/places/tabs/discover"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ place.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ionic-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="place.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>{{place.description}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>{{place.location.address}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-img
+          role="button"
+          (click)="onShowFullMap()"
+          [src]="place.location.staticMapImageUrl"
+          style="width: 100%;"
+        ></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="primary" class="ion-margin" (click)="onBookPlace()">Book</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
